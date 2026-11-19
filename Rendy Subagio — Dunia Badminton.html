@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rendy Subagio — Dunia Badminton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0a0b0d; --card:#12151a; --line:#23272f; --text:#eceef2; --muted:#8b919d; --accent:#c6ff3d;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+section{padding:72px 0}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(26px,5vw,38px);letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.lead{color:var(--muted);font-weight:300;max-width:560px}
+
+/* nav */
+nav{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;max-width:960px;margin:0 auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font-size:13px;text-decoration:none;color:var(--muted);border:1px solid var(--line);padding:7px 14px;border-radius:99px;transition:.2s}
+nav a:hover{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+
+/* hero */
+.hero{text-align:center;padding:40px 0 80px;background:radial-gradient(600px 360px at 50% 0%,rgba(198,255,61,.13),transparent 70%)}
+.avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 24px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:46px;font-weight:700;overflow:hidden;box-shadow:0 0 0 7px rgba(198,255,61,.06),0 0 50px rgba(198,255,61,.14)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+h1{font-size:clamp(40px,10vw,76px);line-height:1;letter-spacing:-.04em;font-weight:700}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-weight:300;max-width:460px;margin:18px auto 28px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:14px;text-decoration:none;font-weight:700;font-size:15px;transition:.2s}
+.btn.p{background:var(--accent);color:#0a0b0d}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(198,255,61,.28)}
+.btn.g{border:1px solid var(--line);color:var(--text)}
+.btn.g:hover{border-color:var(--accent);color:var(--accent)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.stat b{display:block;font-size:30px;color:var(--accent);letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* cards */
+.grid{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.25s}
+.card:hover{border-color:rgba(198,255,61,.5);transform:translateY(-3px)}
+.card .n{font-size:12px;color:var(--accent);letter-spacing:.2em}
+.card h3{font-size:19px;margin:8px 0 6px}
+.card p{font-size:14px;color:var(--muted);font-weight:300}
+
+/* timeline */
+.steps{margin-top:32px;border-left:1px solid var(--line);padding-left:22px;display:grid;gap:26px}
+.step{position:relative}
+.step::before{content:"";position:absolute;left:-28px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.step small{color:var(--accent);font-size:12px;letter-spacing:.15em}
+.step h3{font-size:18px;margin:2px 0}
+.step p{font-size:14px;color:var(--muted);font-weight:300}
+
+.ic,.cv,.fig svg{fill:none;stroke:#c6ff3d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic{width:48px;height:48px;display:block;margin-bottom:14px}
+.cv{width:100%;height:auto;display:block;margin-bottom:14px;stroke-width:1.5}
+.fig{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.fig svg{width:100%;height:auto;display:block}
+.fig text{fill:#8b919d;stroke:none;font-size:11px;font-family:inherit}
+.fig figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+/* quote + cta */
+.quote{text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quote blockquote{font-size:clamp(22px,4.5vw,34px);font-weight:300;letter-spacing:-.01em;max-width:640px;margin:0 auto}
+.quote blockquote b{color:var(--accent);font-weight:500}
+.cta{text-align:center}
+.cta .box{background:linear-gradient(160deg,#151a10,var(--card));border:1px solid var(--line);border-radius:24px;padding:48px 24px}
+.cta .lead{margin:0 auto 26px}
+footer{text-align:center;color:#555b66;font-size:12px;letter-spacing:.15em;padding:30px 20px 40px}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.js .rv.in{opacity:1;transform:none}
+
+@media(min-width:680px){
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  section{padding:96px 0}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-shuttle" viewBox="0 0 100 100"><circle cx="50" cy="82" r="11"/><path d="M41 74 L22 14 M59 74 L78 14 M50 71 L50 11 M45.5 72 L36 12 M54.5 72 L64 12 M22 14 Q50 4 78 14 M30 38 Q50 44 70 38"/></symbol>
+<symbol id="i-racket" viewBox="0 0 100 100"><g transform="rotate(35 50 50)"><ellipse cx="50" cy="32" rx="19" ry="25"/><path d="M50 57 V92 M44 92 H56 M38 14 V50 M44 9 V55 M50 8 V56 M56 9 V55 M62 14 V50 M34 22 H66 M32 32 H68 M34 42 H66"/></g></symbol>
+<symbol id="i-shoe" viewBox="0 0 100 100"><path d="M10 62 V48 Q10 44 14 44 H34 Q40 52 52 54 L78 58 Q90 60 90 68 V72 Q90 76 86 76 H14 Q10 76 10 72 Z M10 68 H90 M40 49 L46 54 M47 51 L53 56"/></symbol>
+</defs></svg>
+
+<nav>
+  <a href="#tentang">Tentang</a>
+  <a href="#teknik">Teknik</a>
+  <a href="#gear">Perlengkapan</a>
+  <a href="#latihan">Latihan</a>
+  <a href="#fakta">Fakta</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <!-- Ganti huruf R dengan: <img src="FOTO_KAMU" alt="Foto profil"> -->
+    <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Foto profil Rendy Subagio"></div>
+    <div class="eyebrow">Rendy Subagio</div>
+    <h1>Smash.<br><em>Repeat.</em></h1>
+    <p>Halo, aku Rendy Subagio. Ini ruang kecilku untuk semua hal tentang badminton: teknik, gear, latihan, dan cerita di lapangan.</p>
+    <div class="btns">
+      <a class="btn p" href="https://www.instagram.com/raendz._" target="_blank" rel="noopener">Follow Instagram</a>
+      <a class="btn g" href="#teknik">Lihat Teknik</a>
+    </div>
+  </div>
+</header>
+
+<section id="tentang">
+  <div class="wrap rv">
+    <div class="eyebrow">Tentang</div>
+    <h2>Main karena cinta,<br>bukan cuma buat menang.</h2>
+    <p class="lead">Badminton itu soal kecepatan, kontrol, dan ritme. Setiap rally adalah cerita kecil: ada tekanan, ada jebakan, ada momen buat nyerang. Di sini aku kumpulkan hal-hal yang bikin olahraga ini seru.</p>
+    <figure class="fig"><svg viewBox="0 0 400 150"><use href="#i-racket" x="8" y="22" width="110" height="110"/><path d="M104 48 Q230 -20 322 72" stroke-dasharray="4 7" stroke-width="1.5"/><g transform="rotate(150 346 92)"><use href="#i-shuttle" x="311" y="57" width="70" height="70"/></g><path d="M60 140 H340" stroke="#23272f"/></svg><figcaption>Satu pukulan, satu keputusan.</figcaption></figure>
+  </div>
+</section>
+
+<section id="teknik" style="background:#0d0f13">
+  <div class="wrap rv">
+    <div class="eyebrow">Teknik Dasar</div>
+    <h2>Enam pukulan yang wajib dikuasai.</h2>
+    <p class="lead">Fondasi sebelum jadi lawan yang menyebalkan di lapangan.</p>
+    <figure class="fig"><svg viewBox="0 0 400 160"><path d="M10 140 H390" stroke="#23272f"/><path d="M200 140 V108" stroke="#eceef2" stroke-width="1.5"/><path d="M50 90 Q230 -30 370 135" stroke-dasharray="4 6"/><path d="M70 40 Q170 50 300 138" stroke="#eceef2"/><path d="M60 80 Q150 10 225 135" stroke="#8b919d" stroke-dasharray="2 5"/><text x="300" y="40">Clear</text><text x="262" y="112" style="fill:#eceef2">Smash</text><text x="150" y="36">Drop</text><text x="192" y="154">net</text></svg><figcaption>Lintasan tiga pukulan utama dari sisi samping lapangan.</figcaption></figure>
+    <div class="grid">
+      <div class="card"><div class="n">01</div><h3>Smash</h3><p>Pukulan keras menukik dari atas. Senjata utama untuk mengakhiri rally. Tenaga datang dari putaran badan dan lecutan pergelangan.</p></div>
+      <div class="card"><div class="n">02</div><h3>Drop Shot</h3><p>Pukulan halus yang jatuh tipis di dekat net. Gerakannya mirip smash, tapi tenaganya dilepas di akhir untuk mengecoh lawan.</p></div>
+      <div class="card"><div class="n">03</div><h3>Clear</h3><p>Bola tinggi ke belakang lapangan. Cara terbaik membeli waktu dan menarik lawan keluar dari posisinya.</p></div>
+      <div class="card"><div class="n">04</div><h3>Net Shot</h3><p>Sentuhan lembut di depan net. Kuncinya ada di kontrol dan kesabaran, bukan tenaga.</p></div>
+      <div class="card"><div class="n">05</div><h3>Serve</h3><p>Awal setiap rally. Servis pendek menekan lawan, servis tinggi dan dalam memberi waktu untuk bersiap.</p></div>
+      <div class="card"><div class="n">06</div><h3>Footwork</h3><p>Rahasia di balik semua pukulan. Langkah kecil yang cepat, selalu kembali ke tengah, selalu siap bergerak.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gear">
+  <div class="wrap rv">
+    <div class="eyebrow">Perlengkapan</div>
+    <h2>Gear yang pas, main makin enak.</h2>
+    <p class="lead">Nggak perlu mahal. Yang penting cocok dengan gaya main dan nyaman di tangan.</p>
+    <div class="grid">
+      <div class="card"><svg class="ic"><use href="#i-racket"/></svg><div class="n">RAKET</div><h3>Balance &amp; Bobot</h3><p>Head heavy untuk smash yang menghujam, head light untuk reaksi cepat di depan net, dan even balance sebagai jalan tengah.</p></div>
+      <div class="card"><svg class="ic"><use href="#i-shuttle"/></svg><div class="n">SHUTTLECOCK</div><h3>Bulu atau Plastik</h3><p>Shuttlecock bulu dipakai di turnamen dan terasa lebih halus. Yang plastik lebih awet, cocok buat latihan harian.</p></div>
+      <div class="card"><svg class="ic"><use href="#i-shoe"/></svg><div class="n">SEPATU</div><h3>Grip &amp; Bantalan</h3><p>Pilih sepatu khusus court dengan sol yang menempel kuat dan bantalan yang melindungi lutut saat lompat dan mendarat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="latihan" style="background:#0d0f13">
+  <div class="wrap rv">
+    <div class="eyebrow">Rutinitas Latihan</div>
+    <h2>Satu sesi, lima tahap.</h2>
+    <p class="lead">Pola sederhana yang bisa dipakai tiap kali turun ke lapangan.</p>
+    <div class="steps">
+      <div class="step"><small>10 MENIT</small><h3>Pemanasan</h3><p>Jogging ringan, dynamic stretching, dan putaran bahu serta pergelangan.</p></div>
+      <div class="step"><small>15 MENIT</small><h3>Footwork Drill</h3><p>Shadow badminton ke enam titik lapangan, fokus ke kecepatan dan kembali ke posisi tengah.</p></div>
+      <div class="step"><small>20 MENIT</small><h3>Drill Pukulan</h3><p>Clear, drop, dan smash berulang bersama partner sampai konsisten.</p></div>
+      <div class="step"><small>30 MENIT</small><h3>Game</h3><p>Main rally point sungguhan. Di sini semua latihan diuji.</p></div>
+      <div class="step"><small>10 MENIT</small><h3>Pendinginan</h3><p>Peregangan, atur napas, dan minum yang cukup.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fakta">
+  <div class="wrap rv">
+    <div class="eyebrow">Fakta Menarik</div>
+    <h2>Hal kecil yang bikin badminton unik.</h2>
+    <div class="grid">
+      <div class="card"><h3>Shuttlecock tercepat</h3><p>Di antara semua olahraga raket, shuttlecock punya kecepatan puncak tertinggi, tercatat lebih dari 500 km/jam saat smash.</p></div>
+      <div class="card"><svg class="cv" viewBox="0 0 200 110"><rect x="10" y="10" width="180" height="90"/><path d="M10 17 H190 M10 93 H190 M73 10 V100 M127 10 V100 M10 55 H73 M127 55 H190 M30 10 V100 M170 10 V100"/><path d="M100 5 V105" stroke="#eceef2"/></svg><h3>Lapangan</h3><p>Ukuran lapangan single 13,4 × 5,18 meter. Untuk double, lebarnya jadi 6,1 meter.</p></div>
+      <div class="card"><h3>Tradisi Indonesia</h3><p>Badminton atau bulutangkis adalah kebanggaan Indonesia, dengan emas Olimpiade pertama diraih tahun 1992.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap rv">
+    <blockquote>Setiap rally dimulai dari <b>satu langkah</b> dan satu keputusan: <b>nyerang</b> atau bertahan.</blockquote>
+  </div>
+</section>
+
+<section id="kontak" class="cta">
+  <div class="wrap rv">
+    <div class="box">
+      <div class="eyebrow">Kontak</div>
+      <h2>Yuk ngobrol soal badminton.</h2>
+      <p class="lead">Mau tukar tips, cari partner main, atau sekadar say hi? Langsung aja ke Instagram.</p>
+      <a class="btn p" href="https://www.instagram.com/raendz._" target="_blank" rel="noopener">@raendz._</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 RENDY SUBAGIO · MADE FOR BADMINTON LOVERS</footer>
+
+<script>
+document.documentElement.classList.add('js');
+try{
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>
